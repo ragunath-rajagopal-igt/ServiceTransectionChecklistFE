@@ -1,0 +1,11 @@
+<!--component html goes here -->
+<ng-container *ngIf="field" class="custom-input">
+  <div [formGroup]="formVal" appearance="outline" class="custom-input">
+      <mat-checkbox 
+      [formControlName]="field.attributes.formControlName" 
+      [checked] = "field.attributes.value"
+      [value] = "field.attributes.value"
+      (change)="handleFieldChange(field.attributes.formControlName, $event.checked)" />
+      <mat-label class="test">{{field.label}}</mat-label>
+    </div>    
+</ng-container>

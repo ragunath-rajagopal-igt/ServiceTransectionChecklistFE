@@ -1,0 +1,16 @@
+
+::ng-deep .panel-toastr-err div, .panel-toastr-err div
+{
+  color:white;
+  background: #F44336 !important;
+}
+
+::ng-deep .panel-toastr-success div, .panel-toastr-success div
+{
+  color:white;
+  background: #1fc600 !important;
+}
+ 
+::ng-deep .custom-primary-btn {
+  background-color: #1677ff !important;
+}

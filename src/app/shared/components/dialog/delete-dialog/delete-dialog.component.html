@@ -1,0 +1,15 @@
+<div class="dialog-header">
+    <h2 class="my-1 mx-0 px-2" mat-dialog-title>{{ data.title }}</h2>
+    <!-- <button mat-icon-button (click)="onCancel()" class="close-icon">
+      <mat-icon>close</mat-icon>
+    </button> -->
+</div>
+<mat-dialog-content class="mat-typography">
+    <p>{{ data.message }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end" class="p-3">
+  <button mat-button mat-dialog-close class="mx-2" (click)="onCancel()">Cancel</button>
+  <button type="button" class="btn btn-primary rounded-pill pull-right" (click)="onConfirm()">
+    Delete
+  </button> 
+</mat-dialog-actions>

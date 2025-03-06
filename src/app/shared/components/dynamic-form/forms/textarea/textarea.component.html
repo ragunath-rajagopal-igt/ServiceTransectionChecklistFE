@@ -1,0 +1,35 @@
+<!--component html goes here -->
+<!-- <ng-container *ngIf="feild" >
+    <mat-form-field [formGroup]="formVal" class="custom-textarea" appearance="outline">
+    <mat-label>{{feild.label}}</mat-label>
+    <textarea matInput [formControlName]="feild.formCtrlName" [value]="feild.value"></textarea>
+    @if (formVal.get(feild.formCtrlName)?.hasError('required')) {
+        <mat-error>{{feild.validatorMsg}}</mat-error>
+      } 
+</mat-form-field> -->
+
+<ng-container *ngIf="field">
+  <mat-form-field [formGroup]="formVal" class="custom-textarea" appearance="outline">
+    <mat-label>{{ field.label }}</mat-label>
+    
+    <textarea 
+      matInput 
+      [formControlName]="field.attributes.formControlName" 
+      [maxlength]="field.attributes.maxLength" 
+      [placeholder]="field.attributes.placeholder" 
+      [disabled]="field.attributes.disabled" 
+      [hidden]="field.attributes.hidden" 
+      [readOnly]="field.attributes.readOnly"
+      [value]="field.attributes.value"
+      >
+    </textarea>
+
+    <!-- Display validation errors -->
+    <mat-error *ngIf="formVal.get(field.attributes.formControlName)?.hasError('required')">
+      {{ field.validationMessages.required }}
+    </mat-error>
+    <mat-error *ngIf="formVal.get(field.attributes.formControlName)?.hasError('maxlength')">
+      {{ field.validationMessages.maxLength }}
+    </mat-error>
+  </mat-form-field>
+</ng-container>

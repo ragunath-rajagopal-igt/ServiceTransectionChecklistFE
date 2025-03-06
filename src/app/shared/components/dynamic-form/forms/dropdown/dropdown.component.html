@@ -1,0 +1,39 @@
+<!-- component html goes here
+<ng-container *ngIf="feild">
+    <mat-form-field [formGroup]="formVal"  appearance="outline" class="custom-input">
+        <mat-label>{{feild.label}}</mat-label>
+        <mat-select [formControlName]="feild.formCtrlName" [(value)]="feild.value" (selectionChange)="handleFieldChange(feild.formCtrlName, $event.value)">
+            @for (option of feild.option; track option) {
+                <mat-option value={{option.key}}>{{option.value}}</mat-option>
+            }            
+            </mat-select>
+
+            @if (formVal.get(feild.formCtrlName)?.hasError('required')) {
+                <mat-error>{{feild.validatorMsg}}</mat-error>
+              }              
+      </mat-form-field>
+</ng-container> -->
+
+<ng-container *ngIf="field">
+    <mat-form-field [formGroup]="formVal" appearance="outline" class="custom-input">
+      <mat-label>{{ field.label }}</mat-label>
+      
+      <mat-select 
+        [formControlName]="field.attributes.formControlName" 
+        (selectionChange)="handleFieldChange(field.attributes.formControlName, $event.value)"
+        [value]="field.attributes.value"
+        [multiple]="multiple"
+      >
+        <mat-option *ngFor="let option of field.options" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+  
+      <!-- Display validation errors -->
+      <mat-error *ngIf="formVal.get(field.attributes.formControlName)?.hasError('required')">
+        {{ field.validationMessages.required }}
+      </mat-error>
+    </mat-form-field>
+  </ng-container>
+  
+  

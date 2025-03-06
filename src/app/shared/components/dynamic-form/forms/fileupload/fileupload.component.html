@@ -1,0 +1,15 @@
+
+<ng-container *ngIf="field" >
+    <mat-form-field style="width: 100%;" appearance="outline" class="custom-input" [hidden]="field.attributes.hidden">
+        <mat-label>{{field.label}}@if(field.attributes.required) {*}</mat-label>
+        <button mat-icon-button matPrefix  type="button" (click)="f_input.click()">
+    <mat-icon>attach_file</mat-icon>
+  </button>
+        <input type="text" class="custom-input-cursor" readonly matInput (click)="f_input.click()" [value]="this.fileName || ''" />
+        <input type="text" hidden readonly matInput [formControlName]="field.attributes.formControlName" (click)="f_input.click()" [value]="this.uploadedFile || ''" />
+        <input type="file" multiple hidden #f_input  (change)="onFileSelected($event)"/>
+        <mat-error *ngIf="formVal.get(field.attributes.formControlName)?.hasError('required')">
+            {{ field.validationMessages.required }}
+        </mat-error>
+    </mat-form-field>
+</ng-container>

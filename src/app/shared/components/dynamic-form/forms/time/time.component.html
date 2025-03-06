@@ -1,0 +1,31 @@
+<ng-container *ngIf="field">
+  <mat-form-field [formGroup]="formVal"  appearance="outline" class="custom-input">
+    <!-- <input 
+    type="time"
+    matInput
+    placeholder="time"
+    [formControlName]="field.attributes.formControlName" 
+    [value]="field.attributes.value"
+    maxlength="10"
+  /> -->
+
+  <input
+  matInput
+  [ngxMatTimepicker]="timepicker1"
+  [formControlName]="field.attributes.formControlName" 
+  [format]="24"
+  [placeholder]="'Select time'"
+  [value]="field.attributes.value"
+  (change)="handleFieldChange(field.attributes.formControlName, $event)"
+
+/>
+<mat-icon
+
+matSuffix
+*ngIf="!formVal.disabled"
+(click)="openFromIcon(timepicker1)"
+>schedule</mat-icon
+>
+<ngx-mat-timepicker #timepicker1></ngx-mat-timepicker>
+  </mat-form-field>
+</ng-container>

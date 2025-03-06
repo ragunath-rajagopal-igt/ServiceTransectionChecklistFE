@@ -1,0 +1,17 @@
+// component css goes here
+input[type=file]::file-selector-button {
+    cursor: pointer;
+    border: 0;
+    padding: 8px;
+    background-color: rgb(91, 105, 194);
+    border-radius: 8px;
+    color: white;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: rgb(54, 61, 115);
+  }
+
+  .custom-input-cursor {
+    cursor: pointer;
+  }

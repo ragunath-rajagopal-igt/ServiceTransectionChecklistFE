@@ -1,0 +1,33 @@
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc; /* Header border */
+    padding: 0 10px;
+  }
+  
+  .dialog-header h1 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .close-icon {
+    cursor: pointer;
+    color: #757575;
+  }
+  
+  .close-icon:hover {
+    color: #000;
+  }
+  
+  mat-dialog-content {
+    padding: 20px;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+
+  

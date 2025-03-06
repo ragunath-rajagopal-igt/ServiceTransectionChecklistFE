@@ -1,0 +1,8 @@
+<!--component html goes here -->
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmitData()" >
+    <app-form-fields *ngIf="formFields" [formFields]="formFields" [form]="form" (onFieldChange)="onFieldChange($event.controlName, $event.selectedValue)"></app-form-fields>
+    <div class="text-end px-2">
+        <button type="button" *ngIf="showSaveButton" mat-stroked-button class="px-4" (click)="goBack()">Back</button> &nbsp;
+        <button type="submit" *ngIf="showSaveButton" [disabled]="!form.valid" mat-flat-button class="px-4 btn-primary">Save</button>    
+    </div>
+</form>    

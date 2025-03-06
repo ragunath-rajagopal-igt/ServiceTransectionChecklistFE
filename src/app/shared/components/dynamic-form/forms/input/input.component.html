@@ -1,0 +1,30 @@
+<ng-container *ngIf="field">
+  <div class="w-100">
+    <mat-form-field [formGroup]="formVal" appearance="outline" class="custom-input">
+      <mat-label>{{ field.label }}</mat-label>
+      <input 
+        matInput 
+        [formControlName]="field.attributes.formControlName" 
+        [maxlength]="field.attributes.maxLength"
+        [minlength]="field.attributes.minlength"
+        [placeholder]="field.attributes.placeholder"
+        [readonly]="field.attributes.readOnly"
+        (input)="onInput(field.attributes.formControlName, formVal.get(field.attributes.formControlName).value)"
+        (change)="handleFieldChange(field.attributes.formControlName, $event)"
+      />
+      <!-- Display validation errors -->
+      <mat-error *ngIf="formVal.get(field.attributes.formControlName)?.hasError('required')">
+        {{ field.validationMessages.required }}
+      </mat-error>
+      <mat-error *ngIf="formVal.get(field.attributes.formControlName)?.hasError('minlength')">
+        {{ field.validationMessages.minLength }}
+      </mat-error>
+      <mat-error *ngIf="formVal.get(field.attributes.formControlName)?.hasError('maxlength')">
+        {{ field.validationMessages.maxLength }}
+      </mat-error>
+      <mat-error *ngIf="formVal.get(field.attributes.formControlName)?.hasError('email')">
+        {{ field.validationMessages.email }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+</ng-container>

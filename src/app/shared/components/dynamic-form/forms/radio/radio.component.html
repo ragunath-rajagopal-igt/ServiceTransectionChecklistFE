@@ -1,0 +1,10 @@
+<!--component html goes here -->
+<ng-container *ngIf="field">
+  <div [formGroup]="formVal" appearance="outline" class="custom-input">
+  <mat-radio-group  [(ngModel)]="field.attributes.value" [formControlName]="field.attributes.formControlName" class="example-radio-group" (change)="handleFieldChange(field.attributes.formControlName,formVal.get(field.attributes.formControlName).value)">
+    <mat-radio-button  *ngFor="let season of field.options" class="example-radio-button"
+    [value] = "season">
+      {{season}}
+    </mat-radio-button>
+  </mat-radio-group></div>
+</ng-container>

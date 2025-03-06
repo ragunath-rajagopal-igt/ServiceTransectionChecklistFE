@@ -1,0 +1,68 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <div class="auth-form">
+      <div class="auth-header">
+        <a href="javascript:">
+          <h6 class="mb-0"><img src="assets/images/logo-icon.svg" alt="theme-logo" class="logo logo-dark logo-lg" />
+            <span class="px-2"><b>STC</b></span>
+          </h6>
+        </a>
+
+      </div>
+      <div class="card my-5 p-2">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-end mb-4">
+            <h6 class="mb-0"><b>{{!apiVerifyAttempt ? 'Validate Account' : !isForgotPassword ? 'Update Password' : 'Forgot Password'}}</b></h6>
+          </div>
+
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="loginForm" *ngIf="!apiVerifyAttempt">
+            <mat-form-field class="full-width-input custom-changes-input mb-1">
+              <mat-label>Email Address</mat-label>
+              <input matInput placeholder="Email Address" formControlName="userMail" required>
+              <mat-error class="m-0" *ngIf="isFieldInvalid('userMail',apiVerifyAttempt)">
+                Please Enter Valid Email Address
+              </mat-error>
+            </mat-form-field>
+
+            <div class="d-grid mt-4 mb-3">
+              <button class="btn btn-primary custom-button" [disabled]="apiVerifyAttempt" mat-flat-button
+                color="primary" type="submit">Validate Email</button>
+            </div>
+          </form>
+
+          <form [formGroup]="formpassword" (ngSubmit)="onSubmitPassword()" class="loginForm" *ngIf="apiVerifyAttempt">
+            <mat-form-field class="full-width-input custom-changes-input mb-1">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" placeholder="Enter Password" formControlName="password" required>
+              <mat-error *ngIf="isFieldInvalid('password',apiVerifyAttempt)">
+                Please Enter Valid password
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input custom-changes-input  mb-1">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput type="password" placeholder="Confirm Password" formControlName="rePassword" required>
+              <mat-error *ngIf="isFieldInvalid('rePassword',apiVerifyAttempt)">
+                Please Enter  Valid password
+              </mat-error>
+            </mat-form-field>
+
+
+            <div class="d-grid mt-4 mb-3">
+              <button class="btn btn-primary custom-button"  mat-flat-button
+                color="primary" type="submit">Submit</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+      <div class="auth-footer row">
+        <div class="col my-1">
+          <p class="m-0">
+            Copyright ©
+            <a href="javascript:" target="_blank">IGT</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

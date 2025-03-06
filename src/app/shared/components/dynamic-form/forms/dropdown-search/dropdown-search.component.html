@@ -1,0 +1,39 @@
+
+<ng-container *ngIf="field">
+  <mat-form-field  [formGroup]="formVal" appearance="outline" class="custom-input">
+    <mat-label>{{ field.label }}</mat-label>
+    <mat-select 
+      [(value)]="selectedValue" 
+      #select 
+      panelClass="custom-select-panel"
+      (openedChange)="onDropdownOpen()"
+      [formControlName]="field.attributes.formControlName" 
+      (selectionChange)="handleFieldChange(field.attributes.formControlName, $event.value)"
+    >
+      <!-- Search Input -->
+      <mat-option class="custom-option-first">
+        <div class="custom-option-input">
+        <input
+          type="text"
+          placeholder="Search..."
+          [value]="searchText"
+          (keyup)="filterOptions($event)"
+          (keydown.space)="$event.stopPropagation()"
+          (click)="$event.stopPropagation()"
+          class="search-box"
+        />
+        </div>
+      </mat-option>
+
+      <!-- Filtered Options -->
+      <mat-option
+        *ngFor="let option of filteredOptions"
+        [value]="option.value"
+      >
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-container>
+  
+  

@@ -1,0 +1,29 @@
+// component css goes here
+// component css goes here
+.custom-input {
+    width: 100%;
+    .mat-form-field-underline {
+      display: none; // Hide the default underline
+    }
+  
+    .mat-form-field-outline {
+      border-color: #ff4081; // Change to your desired border color
+    }
+  
+    .mat-form-field-outline:not(.mat-form-field-invalid) {
+      border-width: 10px; // Change border width
+    }
+  
+    .mat-form-field-outline:not(.mat-form-field-invalid):hover {
+      border-color: #ff4081; // Change border color on hover
+    }
+  
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      border-radius: 4px; // Customize border radius if desired
+    }
+  
+    .mat-form-field-invalid .mat-form-field-outline {
+      border-color: red; // Change border color when invalid
+    }
+  }
+  

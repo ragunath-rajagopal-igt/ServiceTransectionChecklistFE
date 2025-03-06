@@ -1,0 +1,120 @@
+<!--component html goes here -->
+<!-- <div *ngIf="formFields">
+    <div class="container mt-2">
+        <div class="row">
+     @for (field of formFields; track field) {
+    <ng-container  [ngSwitch]="field.controlType">
+        <div [class]="field.styleClass">
+        <app-input  *ngSwitchCase="'input'" [field]="field" [formVal]="formVal"></app-input>
+        <app-dropdown *ngSwitchCase="'select'" [field]="field" [formVal]="formVal" (onFieldChange)="handleFieldChange($event.controlName, $event.selectedValue)"></app-dropdown>
+        <app-textarea  *ngSwitchCase="'textarea'" [field]="field" [formVal]="formVal"></app-textarea>
+        <app-datepicker *ngSwitchCase="'date'"  [field]="field" [formVal]="formVal" ></app-datepicker>
+        <app-fileupload *ngSwitchCase="'file'" [field]="field" [formVal]="formVal"></app-fileupload>
+        </div>
+    </ng-container>
+    }
+    </div>
+    </div>
+</div> -->
+
+<!-- component html goes here -->
+<div *ngIf="formFields">
+    <div class="container mt-2">
+        <div class="row">
+            <ng-container *ngFor="let field of formFields; trackBy: trackByFn">
+                <div [ngClass]="field.attributes.class">
+                    <ng-container [ngSwitch]="field.controlType">
+                        <app-input 
+                            *ngSwitchCase="'input'" 
+                            [field]="field" 
+                            [formVal]="form"
+                            (onFieldChange)="handleFieldChange(field.attributes.formControlName, form.get(field.attributes.formControlName).value)">
+                        </app-input>
+
+                        <app-datepicker 
+                            *ngSwitchCase="'date'" 
+                            [field]="field" 
+                            [formVal]="form"
+                            (onFieldChange)="handleFieldChange(field.attributes.formControlName, form.get(field.attributes.formControlName).value)">
+                        </app-datepicker>
+
+                        <app-dropdown 
+                            *ngSwitchCase="'select'" 
+                            [field]="field" 
+                            [formVal]="form"
+                            (onFieldChange)="handleFieldChange($event.controlName, $event.selectedValue)">
+                        </app-dropdown>
+                        
+                        <app-dropdown-search 
+                            *ngSwitchCase="'select-search'" 
+                            [field]="field" 
+                            [formVal]="form"
+                            (onFieldChange)="handleFieldChange($event.controlName, $event.selectedValue)">
+                        </app-dropdown-search>
+
+                        <app-textarea 
+                            *ngSwitchCase="'textarea'" 
+                            [field]="field" 
+                            [formVal]="form">
+                        </app-textarea>
+
+                        
+                        <app-time 
+                            *ngSwitchCase="'time'" 
+                            [field]="field" 
+                            [formVal]="form">
+                            (onFieldChange)="handleFieldChange($event.controlName, $event.selectedValue)">
+                        </app-time>
+                        
+                        <app-checkbox
+                            *ngSwitchCase="'checkbox'" 
+                            [field]="field" 
+                            [formVal]="form"
+                            (onFieldChange)="handleFieldChange($event.controlName, $event.selectedValue)">
+                        </app-checkbox>
+
+                        <app-fileupload 
+                            *ngSwitchCase="'file'" 
+                            [field]="field" 
+                            [formVal]="form"
+                            (onFieldChange)="handleFieldChange(field.attributes.formControlName, form.get(field.attributes.formControlName).value)">
+                        </app-fileupload>
+
+                        <app-radio
+                            *ngSwitchCase="'radio'" 
+                            [field]="field" 
+                            [formVal]="form"
+                            (onFieldChange)="handleFieldChange($event.controlName, $event.selectedValue)">
+                        </app-radio>
+
+                        <!-- <app-dropdown 
+                            *ngSwitchCase="'select'" 
+                            [field]="field" 
+                            [formVal]="form.get(field.attributes.formControlName)"
+                            (onFieldChange)="handleFieldChange(field.attributes.formControlName, form.get(field.attributes.formControlName).value)">
+                        </app-dropdown>
+
+                        <app-textarea 
+                            *ngSwitchCase="'textarea'" 
+                            [field]="field" 
+                            [formVal]="form.get(field.attributes.formControlName)">
+                        </app-textarea>
+
+                        <app-datepicker 
+                            *ngSwitchCase="'date'" 
+                            [field]="field" 
+                            [formVal]="form.get(field.attributes.formControlName)"
+                            (onFieldChange)="handleFieldChange(field.attributes.formControlName, form.get(field.attributes.formControlName).value)">
+                        </app-datepicker>
+
+                        <app-fileupload 
+                            *ngSwitchCase="'file'" 
+                            [field]="field" 
+                            [formVal]="form.get(field.attributes.formControlName)">
+                        </app-fileupload> -->
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
