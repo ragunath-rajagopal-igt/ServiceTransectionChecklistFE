@@ -130,13 +130,34 @@ getGeneratedConstructuralFields(data:any): Observable<any> {
   return this.http.post(APIEndPoints.constructural.generateForm, data);
 }
 saveContructuralData(data: any): Observable<any> {
-  return this.http.post(APIEndPoints.constructural.saveContructural, data);
+  return this.http.post(APIEndPoints.constructural.save, data);
 }
 deleteContructuralData(id: any): Observable<any> {
   return this.http.delete(`${APIEndPoints.constructural.delete}/${id}`);
 }
 updateContructuralData(data: any): Observable<any> {
   return this.http.post(APIEndPoints.constructural.update,data);
+}
+
+
+/**
+ * Data Management
+ */
+
+getGeneratedDataManagementFields(data:any): Observable<any> {
+  return this.http.post(APIEndPoints.dataManagement.generateForm, data);
+}
+saveDataManagementData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.dataManagement.save, data);
+}
+updateDataManagementData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.dataManagement.update,data);
+}
+getDataManagementData(): Observable<any> {
+  return this.http.get(`${this.apiUrl}/data-management/list`);
+}
+deleteDataManagementData(id: any): Observable<any> {
+  return this.http.delete(`${APIEndPoints.dataManagement.delete}/${id}`);
 }
 
 

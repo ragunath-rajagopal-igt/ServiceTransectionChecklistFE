@@ -55,7 +55,6 @@ export class ContractualComponent {
     private readonly dialog: MatDialog,
     private readonly authService: AuthService,
     private readonly snackBarToastr: SnackbarToastr,
-    private utilityService: UtilityService,
   ) {
     this.currentUserRolePMOAccess = authService.getUserRoleIsPMO();
   }
@@ -95,51 +94,6 @@ export class ContractualComponent {
     this.deleteItem(row);
   }
 
-  //Download File
-  DownloadFile(selectedrow:any){
-    const paramData = selectedrow.approval;
-    if (paramData === undefined || !paramData.fullPath) {
-      this.snackBarToastr.openSnackBar("Document is required for downloading file", true);
-    } else {
-      this.apiSer.downloadData(paramData).subscribe({
-        next: (resObj:any)=>{
-          const url= window.URL.createObjectURL(resObj);
-          const a =document.createElement('a');
-          a.href = url;
-          a.download = paramData.originalName;
-          a.click();
-          window.URL.revokeObjectURL(url);
-        },
-        error: (data:any)=>{
-          const { error } = data || {};
-          this.snackBarToastr.openSnackBar(error?.message || constants.genericSystemMsg.error, true);
-        }
-      })
-    }
-  }
-
-  //Submit Approval
-  onSubmitForApproval(row: any, updateStatus: string): void {
-      this.updateStauts(row, updateStatus); // Call the method to update status
-  }
-
-  //Update Status
-  updateStauts(selectedData: any, updateStatus: string): void {
-    // Implement your delete logic here
-    const { _id: selectedDataId } = selectedData;
-    this.apiSer.updateHireStatusData(selectedDataId, {status: updateStatus}).subscribe({
-      next: (resObj: any) => {
-        if(resObj) {       
-          this.snackBarToastr.openSnackBar(resObj?.message || constants.genericSystemMsg.update, false);
-          this.fetchContructuralData();
-        }
-      },
-      error: (data:any) => {
-        const { error } = data || {};
-        this.snackBarToastr.openSnackBar(error?.message || constants.genericSystemMsg.error, true);
-      }
-    })
-  }
 
   //Delete Item
   deleteItem(deleteData: any): void {
@@ -157,15 +111,6 @@ export class ContractualComponent {
         this.snackBarToastr.openSnackBar(error?.message || constants.genericSystemMsg.error, true);
       }
     })
-  }
-
-  //Send Generate Activity
-  onBtnClickToSendGenerateActivity(event: Event) {
-    this.utilityService.processRecordsForActivityGeneration(
-      this.selectedRows,
-      this.fetchContructuralData.bind(this),
-      constants.module.hire
-    );
   }
 
 }

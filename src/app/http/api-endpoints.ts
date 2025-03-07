@@ -35,9 +35,15 @@ export const APIEndPoints = {
     },
     constructural:{
         generateForm: `${API_ENDPOINT}/constructural/generate-form`,
-        saveContructural: environment.apiUrl + '/constructural/save',
+        save: environment.apiUrl + '/constructural/save',
         delete: `${API_ENDPOINT}/constructural/delete`,
         update: `${API_ENDPOINT}/constructural/update`,
+    },
+    dataManagement:{
+        generateForm: `${API_ENDPOINT}/data-management/generate-form`,
+        save: environment.apiUrl + '/data-management/save',
+        delete: `${API_ENDPOINT}/data-management/delete`,
+        update: `${API_ENDPOINT}/data-management/update`,
     },
     networkSetup: {
         getList: `${API_ENDPOINT}/network-setup/list`,

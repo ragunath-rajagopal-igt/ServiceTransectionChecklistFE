@@ -10,5 +10,10 @@ export const ROUTE_URL = {
         default: 'stc/contractual',
         create: 'stc/contractual/create',
         update: 'stc/contractual/edit',
+    },
+    dataManagement:{
+        default: 'stc/data-management',
+        create: 'stc/data-management/create',
+        update: 'stc/data-management/edit',
     }
 };

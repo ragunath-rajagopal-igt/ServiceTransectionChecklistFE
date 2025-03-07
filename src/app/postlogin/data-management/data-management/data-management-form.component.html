@@ -1,0 +1,14 @@
+<div class="card-container shadow-none text-center mt-4" style="width: 100%;"  *ngIf="formValue">
+    <mat-card class="custom-card p-2 shadow-none rounded">
+        <mat-card-header>
+          <mat-card-title class="text-right">
+            <h6 class="px-3">{{activeView}} Data Management Details</h6>
+          </mat-card-title>
+          </mat-card-header>
+        <mat-card-content class="pb-4">
+            <build-form [formFields]="formValue" (onSubmit)="dataSave($event)" ></build-form>
+        </mat-card-content>
+        <mat-card-footer class="example-card-footer">
+        </mat-card-footer>
+      </mat-card> 
+  </div>
