@@ -16,42 +16,42 @@ export class UtilityService {
     private apiSer: ApiService
   ) {}
 
-  processRecordsForActivityGeneration(
-    selectedRecords: any[],
-    successCallback: () => void,
-    module: string,
-    requiredStatus = constants.status.approved
-  ) {
-    const notApproved = [];
-    const approvedRecords = [];
+  // processRecordsForActivityGeneration(
+  //   selectedRecords: any[],
+  //   successCallback: () => void,
+  //   module: string,
+  //   requiredStatus = constants.status.approved
+  // ) {
+  //   const notApproved = [];
+  //   const approvedRecords = [];
 
-    selectedRecords.forEach((row) => {
-      if (row.status === requiredStatus) {
-        approvedRecords.push(row._id);
-      } else {
-        notApproved.push(row._id);
-      }
-    });
+  //   selectedRecords.forEach((row) => {
+  //     if (row.status === requiredStatus) {
+  //       approvedRecords.push(row._id);
+  //     } else {
+  //       notApproved.push(row._id);
+  //     }
+  //   });
 
-    if (notApproved.length > 0) {
-      this.snackBarToastr.openSnackBar("Please select only approved records to send for generate activity", true);
-    } else {
-      this.apiSer.sendToGenerateActivity({
-        status: constants.status.sent_to_generate_activity,
-        selectedRecords: approvedRecords,
-        module
-      }).subscribe({
-        next: (resObj: any) => {
-          this.snackBarToastr.openSnackBar(resObj?.message || constants.genericSystemMsg.update, false);
-          successCallback();
-        },
-        error: (data: any) => {
-          const { error } = data || {};
-          this.snackBarToastr.openSnackBar(error?.message || constants.genericSystemMsg.error, true);
-        }
-      });
-    }
-  }
+  //   if (notApproved.length > 0) {
+  //     this.snackBarToastr.openSnackBar("Please select only approved records to send for generate activity", true);
+  //   } else {
+  //     this.apiSer.sendToGenerateActivity({
+  //       status: constants.status.sent_to_generate_activity,
+  //       selectedRecords: approvedRecords,
+  //       module
+  //     }).subscribe({
+  //       next: (resObj: any) => {
+  //         this.snackBarToastr.openSnackBar(resObj?.message || constants.genericSystemMsg.update, false);
+  //         successCallback();
+  //       },
+  //       error: (data: any) => {
+  //         const { error } = data || {};
+  //         this.snackBarToastr.openSnackBar(error?.message || constants.genericSystemMsg.error, true);
+  //       }
+  //     });
+  //   }
+  // }
 
   sendValue(value: any): void {
     this.hidefileSubject.next(value);

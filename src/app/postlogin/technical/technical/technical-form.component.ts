@@ -30,56 +30,29 @@ export class TechnicalCreateComponent {
       if(params.get('id')) {
         this.activeView = 'Edit';
         this.paramId = params.get('id');
-        this.loadFormFields({id:params.get('id')});
+        this.generateTechnicalForm({id:params.get('id')});
       } else {
-        this.loadFormFields({});
+        this.generateTechnicalForm({});
       }
     });
     
   }
 
   //Load Form Fields
-  loadFormFields(inputData: any): void {
-    const dataParam = {
-      ...inputData
-    };
-    this.apiSer.getGeneratedHireFields(dataParam).subscribe(
-      (response) => {
-        const formFieldData = response?.data?.formData || [];
-        this.formValue = formFieldData;
-
-        this.formValue = formFieldData.map(field => {
-          if (field.attributes.formControlName === 'hclSapNo') {
-            return {
-              ...field,
-              isKeyUp: true,
-              onChange: (selectedValue: any, formValues: any) => this.onFieldChange('hclSapNo', selectedValue, formValues)
-            };
-          }
-          return field;
-        });
-      },
-      (error) => {
-        const { error: errorData } = error || {};
-        this.snackBarToastr.openSnackBar(errorData?.message || constants.genericSystemMsg.error, true);
-      }
-    );
+  generateTechnicalForm(formData:any){
+    this.apiSer.getGeneratedTechnicalFields(formData).subscribe({
+        next: (resObj: any) => {
+          if(resObj) {       
+            const formFieldData = resObj?.renderData;
+            this.formValue = formFieldData;
+        }
+    },
+    error: (data:any) => {
+      return data;
+    }
+  })
   }
 
-  //Update Form Values
-  updateFormValues(resObj) {
-    const formFieldData = resObj?.data?.renderData;
-    this.formValue = formFieldData.map(field => {
-      if (field.attributes.formControlName === 'hclSapNo') {
-        return {
-          ...field,
-          isKeyUp: true,
-          onChange: (selectedValue: any, formValues: any) => this.onFieldChange('hclSapNo', selectedValue, formValues)
-        };
-      }
-      return field;
-    });
-  }
 
   //Call Api Methods
   dataSave(event:any) {
@@ -90,27 +63,15 @@ export class TechnicalCreateComponent {
     }
   }
 
-  
-  //Field Change
-  onFieldChange(controlName: string, value: any, formValues: any = {}) {
-    const selectedValue = value;
-    if (controlName === 'hclSapNo') {
-      if(this.paramId) {
-        this.loadFormFields({...formValues, id: this.paramId});
-      } else {
-        this.loadFormFields(formValues);
-      }
-    }
-  }
 
   //Update Api cal
   updateFormValue(event) {
     event._id= this.paramId;
-    this.apiSer.updateHireData(event).subscribe({
+    this.apiSer.updateTechnicalData(event).subscribe({
       next: (resObj: any) => {
         if(resObj) {
           this.snackBarToastr.openSnackBar(resObj?.message || constants.genericSystemMsg.update, false);
-          this.router.navigate([ROUTE_URL.contractual.default]); 
+          this.router.navigate([ROUTE_URL.technical.default]); 
         }
       },
       error: (data:any) => {
@@ -122,11 +83,11 @@ export class TechnicalCreateComponent {
 
    //Create Api Cal
  saveFormValue(event) {
-  this.apiSer.saveNewHireData(event).subscribe({
+  this.apiSer.saveTechnicalData(event).subscribe({
     next: (resObj: any) => {
       if(resObj) {       
         this.snackBarToastr.openSnackBar(resObj?.message || constants.genericSystemMsg.create, false);
-        this.router.navigate([ROUTE_URL.contractual.default]);
+        this.router.navigate([ROUTE_URL.technical.default]);
       }
     },
     error: (data:any) => {
