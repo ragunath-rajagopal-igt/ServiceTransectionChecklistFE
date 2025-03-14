@@ -26,6 +26,7 @@ import {
 import { ApiService } from 'src/app/shared/api.service';
 import { AuthService } from 'src/app/shared/auth.service';
 import { SnackbarToastr } from 'src/app/shared/snackbar.toastr';
+import { UtilityService } from 'src/app/shared/utility.service';
 import { constants } from 'src/environments/constants';
 
 @Component({
@@ -46,7 +47,8 @@ export class NavRightComponent {
     private readonly apiSerivce: ApiService,
     private readonly router: Router,
     private readonly snackBarToastr: SnackbarToastr,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
+    private readonly sessionSer: UtilityService
   ) {
     this.windowWidth = window.innerWidth;
     this.iconService.addIcon(
@@ -92,6 +94,10 @@ export class NavRightComponent {
     {
       icon: 'user',
       title: 'Account Settings'
+    },
+    {
+      icon: 'user',
+      title: 'User Settings'
     }
   ];
 
@@ -111,7 +117,19 @@ export class NavRightComponent {
     })
   }
 
-  onAccountSettingClick = () => {
-    this.router.navigate(['/stc/account-setting']);
+  onAccountSettingClick = (users) => {
+    if(users == this.setting[0].title) {
+      this.sessionSer.setItem('user', 'superUser');
+      this.sessionSer.setData('superUser');
+      this.router.navigate(['/stc/admin-setting/severity']);
+    } else {
+      this.sessionSer.setData('user');
+      this.sessionSer.setItem('user', 'user');
+      this.router.navigate(['/stc/contractual']);
+    }
+    // this.router.navigateByUrl('/stc/dashboard', { skipLocationChange: true }).then(() => {
+    //   this.router.navigate(['/'])});
+    // }
+
   }
 }

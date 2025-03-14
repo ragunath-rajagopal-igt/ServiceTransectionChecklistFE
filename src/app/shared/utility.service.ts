@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { constants } from 'src/environments/constants';
 import { ApiService } from './api.service';
 import { SnackbarToastr } from './snackbar.toastr';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,9 @@ import { BehaviorSubject } from 'rxjs';
 export class UtilityService {
   private hidefileSubject = new BehaviorSubject<any>(null);
   hidefileValue$ = this.hidefileSubject.asObservable();
+
+  private sharedData: Subject<any> = new Subject<any>();
+  sharedData$: Observable<any> = this.sharedData.asObservable();
 
   constructor(
     private readonly snackBarToastr: SnackbarToastr,
@@ -52,6 +55,31 @@ export class UtilityService {
   //     });
   //   }
   // }
+
+  setData(updatedData) {
+    this.sharedData.next(updatedData);
+  }
+
+   // Set value in sessionStorage
+   setItem(key: string, value: any): void {
+    sessionStorage.setItem(key, JSON.stringify(value));
+  }
+
+  // Get value from sessionStorage
+  getItem(key: string): any {
+    const value = sessionStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
+  }
+
+  // Remove item from sessionStorage
+  removeItem(key: string): void {
+    sessionStorage.removeItem(key);
+  }
+
+  // Clear all sessionStorage
+  clear(): void {
+    sessionStorage.clear();
+  }
 
   sendValue(value: any): void {
     this.hidefileSubject.next(value);

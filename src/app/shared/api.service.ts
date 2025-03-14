@@ -266,5 +266,28 @@ deleteTechnicalData(id: any): Observable<any> {
   updateManagerDetails(id: any, data:any): Observable<any> {
     return this.http.post(`${APIEndPoints.accountSetting.updateManagerDetails}/${id}`, data);
   }
+
+  /**
+   * admin severity
+   */
+
+  getSeverityData(): Observable<any> {
+    return this.http.get(APIEndPoints.adminSeverity.listData);
+  }
+
+  getGeneratedSeverityFields(data:any): Observable<any> {
+    return this.http.post(APIEndPoints.adminSeverity.generateForm, data);
+  }
+
+  saveAdminSeverityData(data: any): Observable<any> {
+    return this.http.post(APIEndPoints.adminSeverity.save, data);
+  }
+  updateSeverityData(data: any): Observable<any> {
+    return this.http.post(APIEndPoints.adminSeverity.update,data);
+  }
+
+  deleteSeverityData(id: any): Observable<any> {
+    return this.http.delete(`${APIEndPoints.adminSeverity.delete}/${id}`);
+  }
 }
 

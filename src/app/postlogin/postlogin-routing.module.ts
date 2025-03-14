@@ -33,6 +33,12 @@ const routes: Routes = [
         path:'technical',
         loadChildren: () => import('./technical/technical.module').then(m => m.TechnicalModule)
        },
+       {
+        path:'admin-setting',
+        loadChildren: () => import('./admin-setting/admin-setting.module').then(m => m.AdminRoutingModule)
+       },
+
+       
       //  {
       //   path:'test',
       //   loadChildren: () => import('./test/test.module').then(m => m.TestModule)

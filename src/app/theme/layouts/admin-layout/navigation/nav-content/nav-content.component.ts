@@ -1,10 +1,10 @@
 // Angular import
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule, Location, LocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 // project import
-import { NavigationItem, NavigationItems } from '../navigation';
+import { NavigationItem, NavigationItems, NavigationItemsAdmin } from '../navigation';
 import { environment } from 'src/environments/environment';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { NavCollapseComponent } from './nav-collapse/nav-collapse.component';
@@ -38,6 +38,7 @@ import {
   CarryOutOutline,
 
 } from '@ant-design/icons-angular/icons';
+import { UtilityService } from 'src/app/shared/utility.service';
 
 @Component({
   selector: 'app-nav-content',
@@ -48,8 +49,9 @@ export class NavContentComponent implements OnInit {
   // public props
   @Output() NavCollapsedMob: EventEmitter<string> = new EventEmitter();
 
-  navigations: NavigationItem[];
-
+  navigations: any;
+  navAdmin:any
+  user:any;
   // version
   title = 'Demo application for version numbering';
   currentApplicationVersion = environment.appVersion;
@@ -61,7 +63,10 @@ export class NavContentComponent implements OnInit {
   constructor(
     private location: Location,
     private locationStrategy: LocationStrategy,
-    private iconService: IconService
+    private iconService: IconService,
+    private cdr: ChangeDetectorRef,
+    private readonly sessionService: UtilityService
+    
   ) {
     this.iconService.addIcon(
       ...[
@@ -89,7 +94,7 @@ export class NavContentComponent implements OnInit {
         CarryOutOutline,
       ]
     );
-    this.navigations = NavigationItems;
+ 
   }
 
   // Life cycle events
@@ -97,6 +102,21 @@ export class NavContentComponent implements OnInit {
     if (this.windowWidth < 1025) {
       (document.querySelector('.coded-navbar') as HTMLDivElement).classList.add('menupos-static');
     }
+    this.sessionService.sharedData$.subscribe(sharedData => {
+      if(sharedData ==  'superUser') {
+        this.navigations = NavigationItemsAdmin;
+      } else {
+        this.navigations = NavigationItems;
+      }
+    });
+    // if(this.sessionService.getItem('user') == 'superUser') {
+      this.navAdmin = NavigationItems;
+    //   this.user = false;
+    //   this.cdr.detectChanges();
+    // } else {
+    //  this.navigations = NavigationItems;
+    //  this.user = true;
+    // }
   }
 
   fireOutClick() {

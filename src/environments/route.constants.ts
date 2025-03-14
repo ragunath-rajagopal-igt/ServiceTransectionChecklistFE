@@ -30,5 +30,11 @@ export const ROUTE_URL = {
         default: 'stc/technical',
         create: 'stc/technical/create',
         update: 'stc/technical/edit',
+    },
+    adminSeverity:{
+        default: 'stc/admin-setting/severity',
+        create: 'stc/admin-setting/create',
+        update: 'stc/admin-setting/edit',
     }
+
 };

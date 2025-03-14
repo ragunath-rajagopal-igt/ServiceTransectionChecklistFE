@@ -76,5 +76,13 @@ export const APIEndPoints = {
         generateManagerForm: `${API_ENDPOINT}/account-setting/generate-manager-form`,
         updateManagerDetails: `${API_ENDPOINT}/account-setting/update-manager-details`,
         deleteManagerDetails: `${API_ENDPOINT}/account-setting/delete-manager-details`,
-    }
+    },
+    adminSeverity:{
+        listData:environment.apiUrl + '/admin/severity/list',
+        generateForm: `${API_ENDPOINT}/admin/severity/generate-form`,
+        save: environment.apiUrl + '/admin/severity/save',
+        delete: `${API_ENDPOINT}/admin/severity/delete`,
+        update: `${API_ENDPOINT}/admin/severity/update`,
+    },
+
 }

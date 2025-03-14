@@ -141,3 +141,69 @@ export const NavigationItems: NavigationItem[] = [
     ]
   }
 ];
+
+export const NavigationItemsAdmin: NavigationItem[] = [
+  {
+    id: 'dashboard',
+    title: 'Admin',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'default',
+        title: 'Dashboard',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/stc/admin-setting',
+        icon: 'dashboard',
+        breadcrumbs: false
+      },
+      {
+        id: 'contractual',
+        title: 'Sevirity',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/stc/admin-setting/severity',
+        icon: 'global'
+      },
+      {
+        id: 'data-management',
+        title: 'Sub Area',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/stc/admin-setting/severity2',
+        icon: 'global'
+      },
+      {
+        id: 'operations',
+        title: 'Item/Action',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/stc/admin-setting/severity3',
+        icon: 'global'
+      },
+      {
+        id: 'service-management',
+        title: 'Product Name',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/stc/admin-setting/severity2',
+        icon: 'global'
+      },
+      {
+        id: 'technical',
+        title: 'Owner',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/stc/admin-setting/severity1',
+        icon: 'global'
+      }
+    ]
+  }
+];
+
+// sub area
+//  item
+//  product name
+//  owner
+//  status
