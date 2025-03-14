@@ -10,13 +10,15 @@ import { DynamicformModule } from 'src/app/shared/components/dynamic-form/dynami
 import { AdminSeverityComponent } from './admin-severity/admin-severity.component';
 import { CreateSeverityComponent } from './admin-severity/create-severity/create-severity.component';
 import { SubareaComponent } from './sub-area/subarea/subarea.component';
+import { CreateSubAreaComponent } from './sub-area/create-sub-area/create-sub-area.component';
 
 @NgModule({
   declarations: [
     AdminSettingComponent,
     AdminSeverityComponent,
     CreateSeverityComponent,
-    SubareaComponent
+    SubareaComponent,
+    CreateSubAreaComponent
       ],
   imports: [CommonModule, AdminSettingRoutingModule , MaterialModule, SharedModule, TableComponent, DynamicformModule],
 })

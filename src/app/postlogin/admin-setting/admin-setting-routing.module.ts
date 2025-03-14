@@ -4,6 +4,7 @@ import { AdminSettingComponent } from './admin-setting/admin-setting.component';
 import { AdminSeverityComponent } from './admin-severity/admin-severity.component';
 import { CreateSeverityComponent } from './admin-severity/create-severity/create-severity.component';
 import { SubareaComponent } from './sub-area/subarea/subarea.component';
+import { CreateSubAreaComponent } from './sub-area/create-sub-area/create-sub-area.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,15 @@ const routes: Routes = [
     {
       path: 'subarea',
       component: SubareaComponent
+    },
+    ,
+    {
+      path: 'subarea/create',
+      component: CreateSubAreaComponent
+    },
+    {
+      path:'subarea/edit/:id',
+      component: CreateSubAreaComponent
     },
   ]
 @NgModule({

@@ -103,6 +103,6 @@ constructor(
       
   //Button Click Navigation
   onButtonClick(event: Event) {  
-    this.router.navigate([ROUTE_URL.adminSeverity.create]); 
+    this.router.navigate([ROUTE_URL.adminSubarea.create]); 
   }
 }

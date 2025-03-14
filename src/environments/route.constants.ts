@@ -35,6 +35,11 @@ export const ROUTE_URL = {
         default: 'stc/admin-setting/severity',
         create: 'stc/admin-setting/create',
         update: 'stc/admin-setting/edit',
+    },
+    adminSubarea:{
+        default: 'stc/admin-setting/subarea',
+        create: 'stc/admin-setting/subarea/create',
+        update: 'stc/admin-setting/subarea/edit',
     }
 
 };

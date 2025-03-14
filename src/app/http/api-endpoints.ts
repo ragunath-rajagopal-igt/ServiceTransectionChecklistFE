@@ -84,5 +84,12 @@ export const APIEndPoints = {
         delete: `${API_ENDPOINT}/admin/severity/delete`,
         update: `${API_ENDPOINT}/admin/severity/update`,
     },
+    adminSubArea:{
+        listData:environment.apiUrl + '/admin/subarea/list',
+        generateForm: `${API_ENDPOINT}/admin/subarea/generate-form`,
+        save: environment.apiUrl + '/admin/subarea/save',
+        delete: `${API_ENDPOINT}/admin/subarea/delete`,
+        update: `${API_ENDPOINT}/admin/subarea/update`,
+    },
 
 }

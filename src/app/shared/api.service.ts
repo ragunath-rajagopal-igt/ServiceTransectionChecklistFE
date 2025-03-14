@@ -289,5 +289,29 @@ deleteTechnicalData(id: any): Observable<any> {
   deleteSeverityData(id: any): Observable<any> {
     return this.http.delete(`${APIEndPoints.adminSeverity.delete}/${id}`);
   }
+
+  
+  /**
+   * admin severity
+   */
+
+  getSubareaData(): Observable<any> {
+    return this.http.get(APIEndPoints.adminSubArea.listData);
+  }
+
+  getGeneratedSubareaFields(data:any): Observable<any> {
+    return this.http.post(APIEndPoints.adminSubArea.generateForm, data);
+  }
+
+  saveAdminSubareaData(data: any): Observable<any> {
+    return this.http.post(APIEndPoints.adminSubArea.save, data);
+  }
+  updateSubareaData(data: any): Observable<any> {
+    return this.http.post(APIEndPoints.adminSubArea.update,data);
+  }
+
+  deleteSubareaData(id: any): Observable<any> {
+    return this.http.delete(`${APIEndPoints.adminSubArea.delete}/${id}`);
+  }
 }
 

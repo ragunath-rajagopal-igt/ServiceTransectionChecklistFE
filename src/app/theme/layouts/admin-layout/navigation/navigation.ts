@@ -163,7 +163,7 @@ export const NavigationItemsAdmin: NavigationItem[] = [
         title: 'Sevirity',
         type: 'item',
         classes: 'nav-item',
-        url: '/stc/admin-setting/severity',
+        url: '/stc/admin-setting/',
         icon: 'global'
       },
       {
@@ -171,7 +171,7 @@ export const NavigationItemsAdmin: NavigationItem[] = [
         title: 'Sub Area',
         type: 'item',
         classes: 'nav-item',
-        url: '/stc/admin-setting/severity2',
+        url: '/stc/admin-setting/subarea',
         icon: 'global'
       },
       {

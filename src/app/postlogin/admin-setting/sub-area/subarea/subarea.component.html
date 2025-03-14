@@ -1,1 +1,24 @@
 <!--component html goes here -->
+<!--component html goes here -->
+<div class="row bgWhiteBox shadow-sm ">
+    <div class="col-sm-12">
+      <div class="buton-container">
+        <a class="btn btn-primary custom-primary-btn mx-1" (click)="onButtonClick($event)" mat-flat-button color="primary"><mat-icon>add_circle</mat-icon> Add Sub Area</a>
+      </div>
+  
+      <div class="col-md-12 col-xl-12">
+        <div class="card tbl-card">
+          <div class="table-responsive">
+              <app-table
+                [columns]="tableColumn"
+                [dataSource]="dataSource"
+                [actions]="actions"
+                *ngIf="tableColumn"                 
+              />
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+      
