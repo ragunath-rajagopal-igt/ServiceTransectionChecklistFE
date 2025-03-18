@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
+import { ROUTE_URL } from 'src/environments/route.constants';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/api.service';
 import { AuthService } from 'src/app/shared/auth.service';
 import { SnackbarToastr } from 'src/app/shared/snackbar.toastr';
-import { ROUTE_URL } from 'src/environments/route.constants';
 import { constants } from 'src/environments/constants';
 
 @Component({
-    selector: 'admin-severity',
-    templateUrl: 'admin-severity.component.html',
-    styleUrls: ['admin-severity.component.scss']
+    selector: 'owner',
+    templateUrl: 'owner.component.html',
+    styleUrls: ['owner.component.scss']
 })
-export class AdminSeverityComponent {
+export class OwnerComponent {
 
     currentUserRolePMOAccess: boolean = true;
     dataSource: any[] = []; // Initialize as an empty array
@@ -22,7 +22,7 @@ export class AdminSeverityComponent {
     
     // Define table columns
     tableColumn = [
-      { header: 'Severity', columnDef: 'severity' },
+      { header: 'Owner Name', columnDef: 'owner' },
       { header: 'Status', columnDef: 'active' },
     ];
   
@@ -59,9 +59,10 @@ constructor(
 
     //Get Hire Data
     fetchApiData() {
-        this.apiSer.getSeverityData().subscribe({
+        this.apiSer.getOwnerData().subscribe({
           next: (response) => {
             this.dataSource = response;
+            console.log("test",this.dataSource);
             this.loading = false; // Data is loaded
           },
           error: (error) => {
@@ -74,7 +75,7 @@ constructor(
 
       // Handle Edit action
       onEdit(row: any): void {
-        this.router.navigate([ROUTE_URL.adminSeverity.update,row._id]);
+        this.router.navigate([ROUTE_URL.adminOwner.update,row._id]);
       }
     
       // Handle delete action
@@ -87,7 +88,7 @@ constructor(
         deleteItem(deleteData: any): void {
           // Implement your delete logic here
           const { _id: deleteDataId } = deleteData;
-          this.apiSer.deleteSeverityData(deleteDataId).subscribe({
+          this.apiSer.deleteOwnerNameData(deleteDataId).subscribe({
             next: (resObj: any) => {
               if(resObj) {       
                 this.snackBarToastr.openSnackBar(resObj?.message || constants.genericSystemMsg.delete, false);
@@ -103,6 +104,6 @@ constructor(
       
   //Button Click Navigation
   onButtonClick(event: Event) {  
-    this.router.navigate([ROUTE_URL.adminSeverity.create]); 
+    this.router.navigate([ROUTE_URL.adminOwner.create]); 
   }
 }

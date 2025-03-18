@@ -163,7 +163,7 @@ export const NavigationItemsAdmin: NavigationItem[] = [
         title: 'Sevirity',
         type: 'item',
         classes: 'nav-item',
-        url: '/stc/admin-setting/',
+        url: '/stc/admin-setting/severity',
         icon: 'global'
       },
       {
@@ -172,30 +172,38 @@ export const NavigationItemsAdmin: NavigationItem[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/stc/admin-setting/subarea',
-        icon: 'global'
+        icon: 'carry-out'
       },
       {
         id: 'operations',
         title: 'Item/Action',
         type: 'item',
         classes: 'nav-item',
-        url: '/stc/admin-setting/severity3',
-        icon: 'global'
+        url: '/stc/admin-setting/item',
+        icon: 'issues-close'
       },
       {
         id: 'service-management',
         title: 'Product Name',
         type: 'item',
         classes: 'nav-item',
-        url: '/stc/admin-setting/severity2',
-        icon: 'global'
+        url: '/stc/admin-setting/productname',
+        icon: 'project'
       },
       {
         id: 'technical',
         title: 'Owner',
         type: 'item',
         classes: 'nav-item',
-        url: '/stc/admin-setting/severity1',
+        url: '/stc/admin-setting/owner',
+        icon: 'info-circle'
+      },
+      {
+        id: 'technical',
+        title: 'Status',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/stc/admin-setting/status',
         icon: 'global'
       }
     ]

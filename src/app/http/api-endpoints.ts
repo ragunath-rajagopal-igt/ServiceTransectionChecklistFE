@@ -91,5 +91,33 @@ export const APIEndPoints = {
         delete: `${API_ENDPOINT}/admin/subarea/delete`,
         update: `${API_ENDPOINT}/admin/subarea/update`,
     },
+    adminItem:{
+        listData:environment.apiUrl + '/admin/item/list',
+        generateForm: `${API_ENDPOINT}/admin/item/generate-form`,
+        save: environment.apiUrl + '/admin/item/save',
+        delete: `${API_ENDPOINT}/admin/item/delete`,
+        update: `${API_ENDPOINT}/admin/item/update`,
+    },
+    adminProductName:{
+        listData:environment.apiUrl + '/admin/productname/list',
+        generateForm: `${API_ENDPOINT}/admin/productname/generate-form`,
+        save: environment.apiUrl + '/admin/productname/save',
+        delete: `${API_ENDPOINT}/admin/productname/delete`,
+        update: `${API_ENDPOINT}/admin/productname/update`,
+    },
+    adminOwner:{
+        listData:environment.apiUrl + '/admin/ownername/list',
+        generateForm: `${API_ENDPOINT}/admin/ownername/generate-form`,
+        save: environment.apiUrl + '/admin/ownername/save',
+        delete: `${API_ENDPOINT}/admin/ownername/delete`,
+        update: `${API_ENDPOINT}/admin/ownername/update`,
+    },
+    adminStatus:{
+        listData:environment.apiUrl + '/admin/status/list',
+        generateForm: `${API_ENDPOINT}/admin/status/generate-form`,
+        save: environment.apiUrl + '/admin/status/save',
+        delete: `${API_ENDPOINT}/admin/status/delete`,
+        update: `${API_ENDPOINT}/admin/status/update`,
+    }
 
 }

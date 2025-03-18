@@ -313,5 +313,101 @@ deleteTechnicalData(id: any): Observable<any> {
   deleteSubareaData(id: any): Observable<any> {
     return this.http.delete(`${APIEndPoints.adminSubArea.delete}/${id}`);
   }
+
+/**
+* admin Item/Action
+*/
+getItemData(): Observable<any> {
+  return this.http.get(APIEndPoints.adminItem.listData);
 }
+
+getGeneratedItemFields(data:any): Observable<any> {
+  return this.http.post(APIEndPoints.adminItem.generateForm, data);
+}
+
+saveAdminItemData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminItem.save, data);
+}
+updateItemData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminItem.update,data);
+}
+
+deleteItemData(id: any): Observable<any> {
+  return this.http.delete(`${APIEndPoints.adminItem.delete}/${id}`);
+}
+
+/**
+ * admin Product Name
+ */
+getProductData(): Observable<any> {
+  return this.http.get(APIEndPoints.adminProductName.listData);
+}
+
+getGeneratedProductNameFields(data:any): Observable<any> {
+  return this.http.post(APIEndPoints.adminProductName.generateForm, data);
+}
+
+saveAdminProductNameData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminProductName.save, data);
+}
+updateProductNameData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminProductName.update,data);
+}
+
+deleteProductNameData(id: any): Observable<any> {
+  return this.http.delete(`${APIEndPoints.adminProductName.delete}/${id}`);
+}
+
+
+/**
+ * Owner Name
+ */
+getOwnerData(): Observable<any> {
+  return this.http.get(APIEndPoints.adminOwner.listData);
+}
+
+getGeneratedownerFields(data:any): Observable<any> {
+  return this.http.post(APIEndPoints.adminOwner.generateForm, data);
+}
+
+saveAdminOwnerNameData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminOwner.save, data);
+}
+updateOwnerNameData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminOwner.update,data);
+}
+
+deleteOwnerNameData(id: any): Observable<any> {
+  return this.http.delete(`${APIEndPoints.adminOwner.delete}/${id}`);
+}
+
+/**
+ * Status
+ */
+
+getStatusData(): Observable<any> {
+  return this.http.get(APIEndPoints.adminStatus.listData);
+}
+
+getGeneratedStatusFields(data:any): Observable<any> {
+  return this.http.post(APIEndPoints.adminStatus.generateForm, data);
+}
+
+saveAdminStatusData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminStatus.save, data);
+}
+updateStatusData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminStatus.update,data);
+}
+
+deleteStatusData(id: any): Observable<any> {
+  return this.http.delete(`${APIEndPoints.adminStatus.delete}/${id}`);
+}
+
+
+}
+
+
+
+
 

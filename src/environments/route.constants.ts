@@ -40,6 +40,26 @@ export const ROUTE_URL = {
         default: 'stc/admin-setting/subarea',
         create: 'stc/admin-setting/subarea/create',
         update: 'stc/admin-setting/subarea/edit',
+    },
+    adminItem:{
+        default: 'stc/admin-setting/item',
+        create: 'stc/admin-setting/item/create',
+        update: 'stc/admin-setting/item/edit',
+    },
+    adminProductName:{
+        default: 'stc/admin-setting/productname',
+        create: 'stc/admin-setting/productname/create',
+        update: 'stc/admin-setting/productname/edit',
+    },
+    adminOwner:{
+        default: 'stc/admin-setting/owner',
+        create: 'stc/admin-setting/owner/create',
+        update: 'stc/admin-setting/owner/edit',
+    },
+    adminStatus:{
+        default: 'stc/admin-setting/status',
+        create: 'stc/admin-setting/status/create',
+        update: 'stc/admin-setting/status/edit',
     }
 
 };
