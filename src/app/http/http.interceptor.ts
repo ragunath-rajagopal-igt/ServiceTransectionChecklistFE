@@ -56,6 +56,7 @@ export class HttpInterceptorService implements HttpInterceptor {
       setHeaders: {
         Authorization: `Bearer ${token}`,
         organizationCode: orgCode,
+        siteName:sessionStorage.getItem('siteName')
       }
     });
   }

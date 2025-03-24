@@ -102,6 +102,8 @@ export class NavContentComponent implements OnInit {
     if (this.windowWidth < 1025) {
       (document.querySelector('.coded-navbar') as HTMLDivElement).classList.add('menupos-static');
     }
+    console.log('sharedData', this.navigations)
+    this.navigations = NavigationItems;
     this.sessionService.sharedData$.subscribe(sharedData => {
       if(sharedData ==  'superUser') {
         this.navigations = NavigationItemsAdmin;

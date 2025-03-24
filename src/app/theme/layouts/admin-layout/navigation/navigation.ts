@@ -30,7 +30,7 @@ export const NavigationItems: NavigationItem[] = [
         title: 'Dashboard',
         type: 'item',
         classes: 'nav-item',
-        url: '/stc/dashboard',
+        url: '/stc/contractual',
         icon: 'dashboard',
         breadcrumbs: false
       },

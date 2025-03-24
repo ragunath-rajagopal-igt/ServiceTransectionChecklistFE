@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SiteNameComponent } from '../site-name/site-name.component';
+
 
 @Component({
     selector: 'post-login-home-page',
@@ -9,6 +12,32 @@ export class PostLoginHomePageComponent {
 // public props
 navCollapsed: boolean;
 navCollapsedMob: boolean;
+
+
+ constructor(
+      private readonly dialog: MatDialog,
+    ) {
+        console.log('sessionStorage.getItem', sessionStorage.getItem('siteName'));
+        if(sessionStorage.getItem('siteName')  == '' || sessionStorage.getItem('siteName') == null) {
+          const dialogRef = this.dialog.open(SiteNameComponent, {
+            width: '800px',
+            height:'300px',  // Adds a custom backdrop style (optional)
+            disableClose: true,
+            data: {
+              title: 'Select The Site Name',
+              message: 'Please submit the Site Name, then you continue the application.',
+            }
+          });
+
+          dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+              console.log('eee', result);
+            }
+          });
+        }
+    }
+
+
 
 // public method
 navMobClick() {

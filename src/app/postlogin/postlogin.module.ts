@@ -13,6 +13,7 @@ import { NavContentComponent } from '../theme/layouts/admin-layout/navigation/na
 import { NavCollapseComponent } from '../theme/layouts/admin-layout/navigation/nav-content/nav-collapse/nav-collapse.component';
 import { NavGroupComponent } from '../theme/layouts/admin-layout/navigation/nav-content/nav-group/nav-group.component';
 import { NavItemComponent } from '../theme/layouts/admin-layout/navigation/nav-content/nav-item/nav-item.component';
+import { SiteNameComponent } from './site-name/site-name.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,6 @@ import { NavItemComponent } from '../theme/layouts/admin-layout/navigation/nav-c
     SharedModule,
     PostloginRoutingModule,
     ReactiveFormsModule 
-  ],
+  ]
 })
 export class PostloginModule {}

@@ -38,6 +38,8 @@ export class AuthService {
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('userDetails');
     localStorage.removeItem('currentOrganization');
+    sessionStorage.clear();
+    sessionStorage.removeItem('')
   }
 
   // Get org code from localStorage

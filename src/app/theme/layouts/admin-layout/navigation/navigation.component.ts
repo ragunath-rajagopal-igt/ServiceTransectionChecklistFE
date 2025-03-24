@@ -58,7 +58,7 @@ export class NavigationComponent {
 
   reLoad(){
     // this.router.navigate([this.router.url])
-    this.router.navigateByUrl('/stc/dashboard', { skipLocationChange: true }).then(() => {
+    this.router.navigateByUrl('/stc/cc', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/'])});
     }
 }
