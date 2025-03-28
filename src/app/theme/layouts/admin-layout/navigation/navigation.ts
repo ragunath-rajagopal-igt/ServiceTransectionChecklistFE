@@ -73,6 +73,14 @@ export const NavigationItems: NavigationItem[] = [
         classes: 'nav-item',
         url: '/stc/technical',
         icon: 'info-circle',
+      },      
+      {
+        id: 'technical',
+        title: 'Generate',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/stc/gendoc',
+        icon: 'info-circle',
       }
       //,{
       //   id: 'hire',

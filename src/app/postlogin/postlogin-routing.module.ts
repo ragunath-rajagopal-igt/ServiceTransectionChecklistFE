@@ -37,7 +37,10 @@ const routes: Routes = [
         path:'admin-setting',
         loadChildren: () => import('./admin-setting/admin-setting.module').then(m => m.AdminRoutingModule)
        },
-
+       {
+        path:'gendoc',
+        loadChildren: () => import('./genrate-doc/genrate-doc.module').then(m => m.GenrateDocModule)
+       },
        
       //  {
       //   path:'test',

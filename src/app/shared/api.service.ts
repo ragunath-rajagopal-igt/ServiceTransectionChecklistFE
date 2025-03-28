@@ -404,6 +404,12 @@ deleteStatusData(id: any): Observable<any> {
   return this.http.delete(`${APIEndPoints.adminStatus.delete}/${id}`);
 }
 
+/** 
+ * Gen document
+*/
+getGendocument(): Observable<any> {
+  return this.http.get(`${this.apiUrl}/gendoc/list`);
+}
 
 }
 
