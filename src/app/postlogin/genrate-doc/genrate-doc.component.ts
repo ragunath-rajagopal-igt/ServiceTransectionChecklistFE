@@ -27,6 +27,8 @@ export class GenrateDocComponent {
       { header: 'Severity', columnDef: 'severity' },
       { header: 'Sub Area', columnDef: 'subArea' },
       { header: 'Status', columnDef: 'status' },
+      { header: 'Owner', columnDef: 'owner' },
+      { header: 'Product Name', columnDef: 'productName' },
     ];
 
     actions = [

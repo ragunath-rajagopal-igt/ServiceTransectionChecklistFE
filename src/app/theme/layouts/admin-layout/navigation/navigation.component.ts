@@ -16,7 +16,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 export class NavigationComponent {
   // media 1025 After Use Menu Open
   @Output() NavCollapsedMob = new EventEmitter();
-
+  siteName:any='';
   navCollapsedMob;
   windowWidth: number;
   organizationCode: string;
@@ -40,8 +40,14 @@ export class NavigationComponent {
     this.organizationCode = this.authService.getOrgCode();
     this.disableOrg = this.authService.getRoleBasedOrgEnable();
     this.orgList = this.authService.getOrganization();
+   
   }
 
+  ngDoCheck() {
+    // if(sessionStorage.getItem('siteName') == '') {
+      this.siteName = sessionStorage.getItem('siteName');
+    // } 
+  }
   // public method
   navCollapseMob() {
     if (this.windowWidth < 1025) {
