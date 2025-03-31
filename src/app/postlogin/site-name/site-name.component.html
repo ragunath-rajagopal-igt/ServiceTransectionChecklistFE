@@ -13,9 +13,14 @@
           <mat-form-field appearance="fill" style="width:100%;">
             <mat-label> Please select a site name</mat-label>
             <mat-select [(value)]="selectedSiteName" name="sname" required>
-              <mat-option value="Poland">Poland</mat-option>
-              <mat-option value="Maxico">Maxico</mat-option>
-              <mat-option value="India">India</mat-option>
+              <mat-option value="GAS">GAS</mat-option>
+              <mat-option value="KYS">KYS</mat-option>
+              <mat-option value="LORO">LORO</mat-option>
+              <mat-option value="LNB">LNB</mat-option>
+              <mat-option value="LNZ">LNZ</mat-option>
+              <mat-option value="POL">POL</mat-option>
+              <mat-option value="RIS">RIS</mat-option>
+			        <mat-option value="SAZKA">SAZKA</mat-option>
             </mat-select>
             <mat-error *ngIf="submitted && !selectedSiteName">
               Please select a site name.
