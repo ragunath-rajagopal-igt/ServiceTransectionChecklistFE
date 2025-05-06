@@ -118,6 +118,13 @@ export const APIEndPoints = {
         save: environment.apiUrl + '/admin/status/save',
         delete: `${API_ENDPOINT}/admin/status/delete`,
         update: `${API_ENDPOINT}/admin/status/update`,
+    },
+    adminSite:{
+        listData:environment.apiUrl + '/admin/site/list',
+        generateForm: `${API_ENDPOINT}/admin/site/generate-form`,
+        save: environment.apiUrl + '/admin/site/save',
+        delete: `${API_ENDPOINT}/admin/site/delete`,
+        update: `${API_ENDPOINT}/admin/site/update`,
     }
 
 }

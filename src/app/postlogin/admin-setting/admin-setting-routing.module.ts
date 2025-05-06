@@ -13,6 +13,8 @@ import { OwnerComponent } from './owner/owner/owner.component';
 import { CreateOwnerComponent } from './owner/create-owner/create-owner.component';
 import { StatusComponent } from './status/status/status.component';
 import { CreateStatusComponent } from './status/create-status/create-status.component';
+import { SiteComponent } from './site/site/site.component';
+import { CreateSiteComponent } from './site/create-site/create-site.component';
 
 
 const routes: Routes = [
@@ -91,6 +93,18 @@ const routes: Routes = [
     {
       path:'status/edit/:id',
       component: CreateStatusComponent
+    },
+    {
+      path:'site',
+      component: SiteComponent
+    },
+    {
+      path:'site/create',
+      component: CreateSiteComponent
+    },
+    {
+      path:'site/edit/:id',
+      component: CreateSiteComponent
     },
   ]
 @NgModule({

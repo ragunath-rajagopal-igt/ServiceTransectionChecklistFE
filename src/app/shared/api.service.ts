@@ -404,6 +404,29 @@ deleteStatusData(id: any): Observable<any> {
   return this.http.delete(`${APIEndPoints.adminStatus.delete}/${id}`);
 }
 
+/**
+ * Site 
+ */
+getSiteData(): Observable<any> {
+  return this.http.get(APIEndPoints.adminSite.listData);
+}
+
+getGeneratedSiteFields(data:any): Observable<any> {
+  return this.http.post(APIEndPoints.adminSite.generateForm, data);
+}
+
+saveAdminSiteData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminSite.save, data);
+}
+updateSiteData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.adminSite.update,data);
+}
+
+deleteSiteData(id: any): Observable<any> {
+  return this.http.delete(`${APIEndPoints.adminSite.delete}/${id}`);
+}
+
+
 /** 
  * Gen document
 */

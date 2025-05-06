@@ -19,6 +19,9 @@ import { OwnerComponent } from './owner/owner/owner.component';
 import { CreateOwnerComponent } from './owner/create-owner/create-owner.component';
 import { StatusComponent } from './status/status/status.component';
 import { CreateStatusComponent } from './status/create-status/create-status.component';
+import { SiteComponent } from './site/site/site.component';
+import { CreateSiteComponent } from './site/create-site/create-site.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { CreateStatusComponent } from './status/create-status/create-status.comp
     OwnerComponent,
     CreateOwnerComponent,
     StatusComponent,
-    CreateStatusComponent
+    CreateStatusComponent,
+    SiteComponent,
+    CreateSiteComponent
       ],
   imports: [CommonModule, AdminSettingRoutingModule , MaterialModule, SharedModule, TableComponent, DynamicformModule],
 })
