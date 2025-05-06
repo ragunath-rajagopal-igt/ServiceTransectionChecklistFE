@@ -168,7 +168,7 @@ export const NavigationItemsAdmin: NavigationItem[] = [
       },
       {
         id: 'contractual',
-        title: 'Sevirity',
+        title: 'Severity',
         type: 'item',
         classes: 'nav-item',
         url: '/stc/admin-setting/severity',
