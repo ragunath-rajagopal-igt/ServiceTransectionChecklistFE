@@ -15,6 +15,8 @@ import { StatusComponent } from './status/status/status.component';
 import { CreateStatusComponent } from './status/create-status/create-status.component';
 import { SiteComponent } from './site/site/site.component';
 import { CreateSiteComponent } from './site/create-site/create-site.component';
+import { UserComponent } from './user/user/user.component';
+import { CreateUserComponent } from './user/create-user/create-user.component';
 
 
 const routes: Routes = [
@@ -106,6 +108,18 @@ const routes: Routes = [
       path:'site/edit/:id',
       component: CreateSiteComponent
     },
+    {
+      path:'user',
+      component: UserComponent
+    },
+    {
+      path:'user/create',
+      component: CreateUserComponent
+    },
+    {
+      path:'user/edit/:id',
+      component: CreateUserComponent
+    }
   ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],

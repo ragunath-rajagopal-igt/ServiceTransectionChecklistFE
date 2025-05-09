@@ -27,8 +27,8 @@ export const constants = {
         inActive: "InActive",
     },
     role: {
-        pm: "PM",
-        pmo: "PMO"
+        admin:"Admin",
+        otheruser:"Other User"
     },
     module: {
       dashboard: "dashboard",

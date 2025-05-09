@@ -73,9 +73,9 @@ export class ApiService {
     return this.http.post(APIEndPoints.newuser.generateForm, data);
   }
 
-  getUserData(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/user/list`);
-  }
+  // getUserData(): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/user/list`);
+  // }
 
   getDownloadData(): Observable<any> {
     return this.http.get(`${this.apiUrl}/download/list`);
@@ -91,9 +91,6 @@ export class ApiService {
 
   saveNewUserData(data: any): Observable<any> {
     return this.http.post(APIEndPoints.saveUser, data);
-  }
-  updateUserData(data: any): Observable<any> {
-    return this.http.post(APIEndPoints.updateUser, data);
   }
   updateUserStatusData(id: any, data:any): Observable<any> {
     return this.http.post(`${APIEndPoints.newuser.updateStatusUser}/${id}`, data);
@@ -424,6 +421,29 @@ updateSiteData(data: any): Observable<any> {
 
 deleteSiteData(id: any): Observable<any> {
   return this.http.delete(`${APIEndPoints.adminSite.delete}/${id}`);
+}
+
+/**
+ * User
+ */
+
+getUserData(): Observable<any> {
+  return this.http.get(APIEndPoints.newuser.get);
+}
+
+getGeneratedUserFields(data:any): Observable<any> {
+  return this.http.post(APIEndPoints.newuser.generateForm, data);
+}
+
+saveUserData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.newuser.save, data);
+}
+updateUserData(data: any): Observable<any> {
+  return this.http.post(APIEndPoints.newuser.update,data);
+}
+
+deleteUserData(id: any): Observable<any> {
+  return this.http.delete(`${APIEndPoints.newuser.delete}/${id}`);
 }
 
 

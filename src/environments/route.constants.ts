@@ -65,6 +65,11 @@ export const ROUTE_URL = {
         default: 'stc/admin-setting/site',
         create: 'stc/admin-setting/site/create',
         update: 'stc/admin-setting/site/edit',
+    },
+    adminUser:{
+        default: 'stc/admin-setting/user',
+        create: 'stc/admin-setting/user/create',
+        update: 'stc/admin-setting/user/edit',
     }
 
 };

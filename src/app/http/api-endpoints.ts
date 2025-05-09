@@ -27,7 +27,7 @@ export const APIEndPoints = {
         get: `${API_ENDPOINT}/user/list`,
         generateForm: `${API_ENDPOINT}/user/generate-form`,
         save: `${API_ENDPOINT}/user/save`,
-        update: `${API_ENDPOINT}/user/updateuser`,
+        update: `${API_ENDPOINT}/user/update`,
         delete: `${API_ENDPOINT}/user/delete`,
         igtIdAndEmailForm: `${API_ENDPOINT}/user/igt-id-email-form`,
         igtIdAndEmailUpdate: `${API_ENDPOINT}/user/igt-id-email-update`,

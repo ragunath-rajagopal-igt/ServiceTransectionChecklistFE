@@ -221,6 +221,14 @@ export const NavigationItemsAdmin: NavigationItem[] = [
         classes: 'nav-item',
         url: '/stc/admin-setting/site',
         icon: 'usergroup-delete'
+      },
+      {
+        id: 'technical',
+        title: 'User',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/stc/admin-setting/user',
+        icon: 'carry-out'
       }
     ]
   }
