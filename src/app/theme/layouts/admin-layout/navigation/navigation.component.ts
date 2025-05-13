@@ -46,6 +46,7 @@ export class NavigationComponent {
   ngDoCheck() {
     // if(sessionStorage.getItem('siteName') == '') {
       this.siteName = sessionStorage.getItem('siteName');
+      console.log(' this.siteName',  this.siteName);
     // } 
   }
   // public method
