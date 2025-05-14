@@ -2,36 +2,22 @@
 <form (ngSubmit)="onSubmit()">
     <div class="dialog-header">
     <h2 class="my-1 mx-0 px-2" mat-dialog-title>{{ data.title }}</h2>
-    <!-- <button mat-icon-button (click)="onCancel()" class="close-icon">
-      <mat-icon>close</mat-icon>
-    </button> -->
 </div>
 <mat-dialog-content class="mat-typography">
     <p>{{ data.message }}</p>
- 
-    <div class="form-container">
+    <div *ngIf="isadmin; else falseblock" class="form-container">
           <mat-form-field appearance="fill" style="width:100%;">
             <mat-label> Please select a site name</mat-label>
-            <mat-select [(value)]="selectedSiteName" name="sname" required>
-              <mat-option value="GAS">GAS</mat-option>
-              <mat-option value="KYS">KYS</mat-option>
-              <mat-option value="LORO">LORO</mat-option>
-              <mat-option value="LNB">LNB</mat-option>
-              <mat-option value="LNZ">LNZ</mat-option>
-              <mat-option value="POL">POL</mat-option>
-              <mat-option value="RIS">RIS</mat-option>
-			        <mat-option value="SAZKA">SAZKA</mat-option>
+            <mat-select [(value)]="selectedSiteName" name="sname" required >
+              <mat-option *ngFor="let sitename of getSitesName" [value]="sitename.value">
+                {{sitename.label}}
+              </mat-option>
             </mat-select>
             <mat-error *ngIf="submitted && !selectedSiteName">
               Please select a site name.
             </mat-error>
           </mat-form-field>
-       
-      
-        <div *ngIf="submitted && selectedFruit">
-          <p>You selected: {{ selectedSiteName }}</p>
-        </div>
-      </div>     
+      </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end" class="p-3">
   <button type="button" class="btn btn-primary rounded-pill pull-right"  style="width: 150px;" type="submit">
@@ -39,3 +25,17 @@
   </button> 
 </mat-dialog-actions>
 </form>
+
+  <ng-template #falseblock class="form-container">
+          <mat-form-field appearance="fill" style="width:100%;">
+            <mat-label> Please select a site name</mat-label>
+            <mat-select [(value)]="selectedSiteName" name="sname" required >
+              <mat-option *ngFor="let sitename of getSitesName" [value]="sitename">
+                {{sitename}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && !selectedSiteName">
+              Please select a site name.
+            </mat-error>
+          </mat-form-field>
+    </ng-template>
