@@ -78,7 +78,7 @@ export default class LoginComponent {
       this.apiService.authLogin(credentials).subscribe(
         (response) => {
           sessionStorage.setItem('sites', JSON.stringify(response.data.userDetails.sites));
-          sessionStorage.setItem('isAdmin', JSON.stringify(response.data.userDetails.isAdmin));
+          sessionStorage.setItem('UserName',response.data.userDetails.name);
           this.formSubmitAttempt = false;
           this.apiSubmitAttempt = false;
           const token = response.data.accessToken || '';

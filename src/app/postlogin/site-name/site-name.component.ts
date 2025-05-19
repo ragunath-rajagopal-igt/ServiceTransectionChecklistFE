@@ -30,8 +30,6 @@ export class SiteNameComponent {
     
       ngOnInit(): void {
         this.getSiteName();
-        this.isadmin = sessionStorage.getItem('isAdmin');
-        console.log("bbbbbbb",JSON.parse(this.isadmin));
       }
      onConfirm() {
         console.log('eredsfds');
@@ -41,7 +39,6 @@ export class SiteNameComponent {
       this.getSitesName = [];
       const sitename = sessionStorage.getItem('sites');
       this.getSitesName = JSON.parse(sitename);
-      console.log("ccccccc",this.getSitesName);
      }
 
      onSubmit(): void {
